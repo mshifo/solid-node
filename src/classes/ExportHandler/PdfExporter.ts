@@ -1,6 +1,6 @@
 import path from "path";
-import FileExporter from "../interfaces/FileExporter";
-import { User } from "../models/User";
+import FileExporter from "../../interfaces/FileExporter";
+import { User } from "../../models/User";
 import fs from "fs";
 import PdfPrinter from "pdfmake";
 

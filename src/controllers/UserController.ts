@@ -1,7 +1,7 @@
 import { User } from "../models/User"
 import { Request, Response } from 'express'
-import { ExcelExporter, PdfExporter, CashPayment, CardPayment } from "../classes"
-import { exportData, payService, sendEmail } from '../services'
+import { ExcelExporter, PdfExporter } from "../classes"
+import { exportData, sendEmail } from '../services'
 
 export const all = async (req: Request, res: Response) => {
     await User.findAll().then((users) => res.json(users)).catch(error => res.status(500).json(error))
@@ -37,17 +37,6 @@ export const exportFile = async (req: Request, res: Response) => {
 }
 
 
-//Task #3 Liskov Substitution 
-export const pay = async (req: Request, res: Response) => {
-    const cash = new CashPayment(20);
-    const card = new CardPayment(20);
-    try {
-        const amount = payService(card)
-        res.json({ "success": true, amount })
-    } catch (error) {
-        res.status(500).json(error)
-    }
 
-}
 
 

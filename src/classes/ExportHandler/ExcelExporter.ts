@@ -1,6 +1,6 @@
-import FileExporter from "../interfaces/FileExporter";
+import FileExporter from "../../interfaces/FileExporter";
 import { Workbook } from 'exceljs';
-import { User } from "../models/User";
+import { User } from "../../models/User";
 import path from "path";
 
 export default class ExcelExporter implements FileExporter {

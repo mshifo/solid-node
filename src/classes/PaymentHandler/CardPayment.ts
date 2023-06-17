@@ -1,4 +1,4 @@
-import PaymentInterface from "../interfaces/PaymentInterface";
+import PaymentInterface from "../../interfaces/PaymentInterface";
 
 class CardPayment implements PaymentInterface {
 
