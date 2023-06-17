@@ -1,0 +1,47 @@
+{
+  "development": {
+    "username": {
+      "ENV": "DATABASE_USER"
+    },
+    "password": {
+      "ENV": "DATABASE_PASSWORD"
+    },
+    "database": {
+      "ENV": "DATABASE"
+    },
+    "host": {
+      "ENV": "DATABASE_HOST"
+    },
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": {
+      "ENV": "DATABASE_USER"
+    },
+    "password": {
+      "ENV": "DATABASE_PASSWORD"
+    },
+    "database": {
+      "ENV": "DATABASE"
+    },
+    "host": {
+      "ENV": "DATABASE_HOST"
+    },
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": {
+      "ENV": "DATABASE_USER"
+    },
+    "password": {
+      "ENV": "DATABASE_PASSWORD"
+    },
+    "database": {
+      "ENV": "DATABASE"
+    },
+    "host": {
+      "ENV": "DATABASE_HOST"
+    },
+    "dialect": "mysql"
+  }
+}
