@@ -28,7 +28,7 @@ export const exportFile = async (req: Request, res: Response) => {
     await User.findAll().then((users) => {
         const exporter = req.params.type === 'excel' ? new ExcelExporter(users) : new PdfExporter(users);
         exporter.exportFile().then((data) => {
-            res.json({ "success": true, message: `File exported to path ${req.protocol}://${req.get('host')}/excel/export.xlsx` })
+            res.json({ "success": true, message: `File exported to path` })
         }).catch(error => { console.log(error); res.status(500).json(error) });
     }).catch(error => res.status(500).json(error))
 }
