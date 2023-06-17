@@ -5,13 +5,7 @@ import path from "path";
 
 export default class ExcelExporter implements FileExporter {
 
-    data: User[];
-
-    constructor(data: User[]){
-        this.data = data;
-    }
-
-    async exportFile() {
+    async exportFile(data: User[]) {
         const workbook = new Workbook();
 
         // Create a worksheet
@@ -21,7 +15,7 @@ export default class ExcelExporter implements FileExporter {
         worksheet.addRow(['Name', 'Email']);
 
         // Add data rows
-        this.data.forEach((row) => {
+        data.forEach((row) => {
             worksheet.addRow([row.name, row.email]);
         });
 

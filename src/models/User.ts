@@ -1,6 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../helpers/db';
-import { hashPassword } from '../services/HashPassword';
+import { hashPassword } from '../services';
 
 export class User extends Model {
 

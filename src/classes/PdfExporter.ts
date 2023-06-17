@@ -5,13 +5,8 @@ import fs from "fs";
 import PdfPrinter from "pdfmake";
 
 export default class PdfExporter implements FileExporter {
-    data: User[];
-
-    constructor(data: User[]) {
-        this.data = data;
-    }
-
-    async exportFile() {
+   
+    async exportFile(data: User[]) {
 
         const folderPath = path.join(__dirname, '../../public');
         const filePath = path.join(folderPath, '/pdf/export.pdf');
@@ -39,7 +34,7 @@ export default class PdfExporter implements FileExporter {
                         widths: [100, '*', 100, '*'],
                         body: [
                             ['Name', 'Email'],
-                            ...this.data.map((row) => [row.name, row.email]),
+                            ...data.map((row) => [row.name, row.email]),
                         ]
                     }
                 },
