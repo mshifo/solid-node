@@ -1,7 +1,7 @@
 import Joi from 'joi'
 import { Request, Response, NextFunction } from 'express'
 
-export function ValidateMiddleware(schema: Joi.ObjectSchema) {
+export function ValidateBody(schema: Joi.ObjectSchema) {
   return (req: Request, res: Response, next: NextFunction) => {
     schema.validateAsync(req.body).then(() => {
       next();
