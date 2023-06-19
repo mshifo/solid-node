@@ -32,7 +32,7 @@ export const update = async (req: Request, res: Response) => {
             individualHooks: true,
         })
 
-        //sendEmail('dev.melshafaey@gmail.com', 'Profile Updated', 'Profile Updated'); 
+        sendEmail('dev.melshafaey@gmail.com', 'Profile Updated', 'Profile Updated'); 
         res.json({ updated })
     } catch (error) {
         res.status(500).json(error)
