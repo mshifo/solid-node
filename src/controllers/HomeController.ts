@@ -6,7 +6,7 @@ import TransferManager from "../classes/TransferHandler/TransferManager";
 
 
 //Task #3 Liskov Substitution 
-export const pay = async (req: Request, res: Response) => {
+export const pay = (req: Request, res: Response) => {
     const cash = new CashPayment(20);
     const card = new CardPayment(20);
     try {
@@ -18,7 +18,7 @@ export const pay = async (req: Request, res: Response) => {
 }
 
 //Task #4 Interface segregation 
-export const sendNotification = async (req: Request, res: Response) => {
+export const sendNotification = (req: Request, res: Response) => {
     const sms = new SMSHandler();
     const email = new EmailHandler();
     const push = new PNHandler();
@@ -34,7 +34,7 @@ export const sendNotification = async (req: Request, res: Response) => {
 }
 
 //Task #5 Dependency inversion 
-export const transferMoney = async (req: Request, res: Response) => {
+export const transferMoney = (req: Request, res: Response) => {
     const paypal = new PayPalTransfer();
     const transfer = new TransferManager(paypal) 
     try {

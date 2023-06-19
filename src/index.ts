@@ -1,7 +1,7 @@
 import express from "express";
 import sequelize from "./helpers/db";
-import userRoutes from "./routes/UserRoutes";
-import MainRoutes from "./routes/MainRoutes";
+import { userRoutes, MainRoutes } from "./routes";
+
 import "reflect-metadata";
 
 const app = express();

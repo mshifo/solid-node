@@ -1,8 +1,10 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../helpers/db';
 import { hashPassword } from '../services';
+import UserAttributes from '../interfaces/types/UserAttributes';
+import Order from './Order';
 
-export class User extends Model {
+export class User extends Model<UserAttributes> implements UserAttributes {
 
     setPassword(password: string) {
         this.password = password;
@@ -12,6 +14,7 @@ export class User extends Model {
     declare name: string;
     declare email: string;
     declare password: string;
+    declare Orders: Order[]
 }
 
 User.init(
@@ -41,6 +44,10 @@ User.init(
         timestamps: false
     }
 );
+
+
+User.hasMany(Order)
+Order.belongsTo(User)
 
 User.beforeUpdate((user: User) => {
     if (user.changed('password')) {
