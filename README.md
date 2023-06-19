@@ -306,6 +306,8 @@ const { username, password, database, host } = config;
 4- Use an ORM (Object-Relational Mapping) Framework:
 ORM frameworks like Sequelize, TypeORM, or Prisma provide abstractions to interact with the database. They allow you to define models, query the database using an object-oriented approach, and handle database operations without directly writing SQL queries. By using an ORM, you can centralize database-related code and reuse it across different parts of your application.
 
+- Use migrations and seeders to automate creation of schemas and data
+
 - Define Models with Associations:
   Sequelize allows you to define models that represent your database tables. By defining associations between models, you can reuse these associations instead of duplicating the relationship definitions in multiple places. For example:
 
@@ -345,4 +347,30 @@ User.beforeUpdate((user: User) => {
 User.beforeCreate((user: User) => {
   user.setPassword(hashPassword(user.password));
 });
+```
+
+5- Define Reusable Validation Middleware:
+Create a validation middleware that encapsulates common validation rules and logic. This middleware can be used across different endpoints or routes, eliminating the need to repeat the same validation code for each endpoint.
+
+```ts
+export function ValidateParams(schema: Joi.ObjectSchema) {
+  return (req: Request, res: Response, next: NextFunction) => {
+    const { error } = schema.validate(req.params);
+
+    if (error) {
+      // Handle validation error
+      return res.status(400).json({ error: error.details[0].message });
+    }
+
+    // Params are valid, proceed to the next middleware
+    next();
+  };
+}
+export const ExportTypeSchema = Joi.object({
+  type: Joi.string()
+    .valid(...["excel", "pdf"])
+    .required(),
+});
+
+userRoutes.get("/export/:type", ValidateParams(ExportTypeSchema), exportFile);
 ```
