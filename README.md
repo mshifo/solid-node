@@ -242,7 +242,7 @@ This approach adheres to the Dependency Inversion Principle by decoupling high-l
 
 ## DRY
 
-(Don't Repeat Yourself) principle encourages developers to avoid duplicating code and promote code reuse. When working with a Node.js project using TypeScript, here are some ways to apply the DRY principle effectively:
+(Don't Repeat Yourself) principle encourages to avoid duplicating code and promote code reuse. When working with a Node.js project using TypeScript, here are some ways to apply the DRY principle effectively:
 
 1- Reusing Type Definitions:
 
@@ -278,7 +278,7 @@ if (user.changed("password")) {
 }
 ```
 
-By creating a reusable utility function, you can avoid duplicating the tax calculation logic in multiple places and simply import and use the function where needed.
+By creating a reusable utility function, you can avoid duplicating the password hashing logic in multiple places and simply import and use the function where needed.
 
 3- Shared Configuration:
 
@@ -335,7 +335,7 @@ res.json(user?.Orders);
 ```
 
 - Encapsulate Reusable Query Logic:
-  If you find yourself performing similar database queries in multiple places, consider encapsulating the query logic in reusable functions or static methods within the model. By centralizing the query logic, you avoid duplicating the same query code across different parts of your codebase. For example:
+  If you find yourself performing similar operations in multiple places, consider encapsulating the logic in reusable functions or static methods within the model Or simply by using Hooks provided by Sequelize ORM. For example:
 
 ```ts
 User.beforeUpdate((user: User) => {
