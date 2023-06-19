@@ -4,7 +4,7 @@ this app applys the SOLID software system principles using Nodejs + TypeScript +
 
 ## installation
 
-1- run the following the command to install required packages
+1- run the following command to install required packages
 
 ```shell
 yarn
@@ -12,7 +12,7 @@ yarn
 
 2- rename the .env.example file to .env and update it with required environment variables
 
-2- run the following the command to migrate the database tables with dummy data
+2- run the following commands to migrate the database tables with dummy data
 
 ```shell
 yarn migrate:up
