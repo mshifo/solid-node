@@ -47,7 +47,7 @@ User.init(
 
 
 User.hasMany(Order)
-Order.belongsTo(User)
+Order.belongsTo(User, {constraints: true, onDelete:'CASCADE'})
 
 User.beforeUpdate((user: User) => {
     if (user.changed('password')) {
